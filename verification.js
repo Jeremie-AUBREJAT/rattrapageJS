@@ -1,16 +1,18 @@
-
+// normalement tout fonctionne ca m aura juste pris environ 8h 
 
 // Fonction pour vérifier les champs sont remplis
 
-    //je declare mes champs a recuperer
     
-const nom = document.getElementById('nom');
-const prenom = document.getElementById('prenom');
-const email = document.getElementById('email');
-const sujet = document.getElementById('sujet');
-const message = document.getElementById('message');
+    
 
 function verifForm() {
+
+    //je declare mes champs a recuperer
+    let nom = document.getElementById('nom');
+    let prenom = document.getElementById('prenom');
+    let email = document.getElementById('email');
+    let sujet = document.getElementById('sujet');
+    let message = document.getElementById('message');
 
 
          if (nom.value !== '' && prenom.value !== '' && email.value !== '' && sujet.value !== '' && message.value !== '') {
@@ -23,7 +25,7 @@ function verifForm() {
     
  }};
  //j appel la fonction
- document.addEventListener('input', verifForm);
+ document.addEventListener('input', verifForm); // je voulais un mouseover mais pas reussi a faire fonctionner la fonction avec
 
 // requete ajax
 $(document).ready(function(){
@@ -40,7 +42,7 @@ $(document).ready(function(){
             success: function(response){               
                 if (response === '1') {
                     $('.reponse').html('Formulaire soumis avec succes.');
-                    $('#nom, #prenom, #email, #message, #sujet, #message').prop("disabled", true);
+                    $('#nom, #prenom, #email, #message, #sujet, #message, #submit').prop("disabled", true); //pas reussi a la faire fonctionner avec un setattr
                 } else if (response === '2') {    
                     $('.reponse').html('Nom requis');
                     $('#nom').css('border-color','red');
